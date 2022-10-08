@@ -3,11 +3,11 @@ package datos;
 import java.util.Date;
 
 public class Boleta {
-private int id_boleta;
+private String id_boleta;
 private String contenido;
 private Date fecha;
 
-public Boleta(int id_boleta, String contenido, Date fecha) {
+public Boleta(String id_boleta, String contenido, Date fecha) {
 	super();
 	this.id_boleta = id_boleta;
 	this.contenido = contenido;
@@ -15,11 +15,11 @@ public Boleta(int id_boleta, String contenido, Date fecha) {
 	
 }
 
-public int getId_boleta() {
+public String getId_boleta() {
 	return id_boleta;
 }
 
-public void setId_boleta(int id_boleta) {
+public void setId_boleta(String id_boleta) {
 	this.id_boleta = id_boleta;
 }
 

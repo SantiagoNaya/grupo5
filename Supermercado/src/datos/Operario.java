@@ -1,9 +1,9 @@
 package datos;
 
 public class Operario extends Usuario  {
-private int id_operario;
+private String id_operario;
 
-public int getId_operario() {
+public String getId_operario() {
 	return id_operario;
 }
 
@@ -12,13 +12,17 @@ public String toString() {
 	return "Operario [id_operario=" + id_operario + "]";
 }
 
-public void setId_operario(int id_operario) {
+public void setId_operario(String id_operario) {
 	this.id_operario = id_operario;
 }
 
-public Operario(String nombre, int password, int dni, int nivel, int id_operario) {
-	super(nombre, password, dni, nivel);
+public Operario(String nombre, String password, String dni, String nivel, String id_operario) {
+	super(nombre, password, dni, nivel="1");
 	this.id_operario = id_operario;
+}
+
+public Operario() {
+	super();
 }
 
 }
