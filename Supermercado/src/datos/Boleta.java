@@ -11,6 +11,7 @@ public Boleta(int id_boleta, String contenido, Date fecha) {
 	this.id_boleta = id_boleta;
 	this.contenido = contenido;
 	this.fecha = fecha;
+	//s
 }
 
 }
