@@ -134,6 +134,55 @@ LinkedList<Gerente> Gerente = new LinkedList<Gerente>();
 			return false;
 		
 }
+LinkedList<Producto> Producto = new LinkedList<Producto>();
+		
+		public boolean add(Producto productos) {
+			char [] data = productos.getArticulo().toCharArray();
+			
+			
+			if(data.length >= 3 && data.length <= 60 ) {
+				String cantidad = productos.getCantidad();
+				data = cantidad.toCharArray();
+				if(data.length >= 1 && data.length <= 6 ) {
+					String id_stock = productos.getId_stock();
+					data = id_stock.toCharArray();
+					
+					if(data.length > 0) {
+							
+						Producto.add(productos);
+								return true;
+							}
+						}
+					}
+					
+					
+			return false;
+				}
+			
+LinkedList<Boleta> Boleta = new LinkedList<Boleta>();
+		
+		public boolean add(Boleta boleta) {
+			char [] data = boleta.getContenido().toCharArray();
+			
+			
+			if(data.length >= 3 && data.length <= 100 ) {
+				String fecha = boleta.getFecha();
+				data = fecha.toCharArray();
+				if(data.length == 10 ) {
+					String cantidad = boleta.getCantidad();
+					data = cantidad.toCharArray();
+					if(data.length >= 1 ) {
+						Boleta.add(boleta);
+								return true;
+							}
+						}
+			}
+					
+					
+			return false;
+				}
+		
+
 		
 		public boolean Borrar(Sucursal sucursal) {
 			
@@ -168,6 +217,26 @@ LinkedList<Gerente> Gerente = new LinkedList<Gerente>();
 		return false;
 	}
 }
+		
+		
+		public boolean Borrar(Producto productos) {
+			
+			if(Producto.remove(productos)) {			
+				return true; 
+			}else {			
+				return false;
+			}
+		} 
+		
+public boolean Borrar(Boleta boleta) {
+			
+			if(Boleta.remove(boleta)) {			
+				return true; 
+			}else {			
+				return false;
+			}
+		} 
+		
 		public boolean Editar(Sucursal sucursal){
 			int index = IndexSucursal(sucursal);
 			Sucursal.set(index, sucursal);
@@ -186,6 +255,18 @@ LinkedList<Gerente> Gerente = new LinkedList<Gerente>();
 		public boolean Editar(Gerente gerente){
 			int index = IndexGerente(gerente);
 			Gerente.set(index, gerente);
+			return true;
+		}
+		
+		public boolean Editar(Producto productos){
+			int index = IndexProducto(productos);
+			Producto.set(index, productos);
+			return true;
+		}
+		
+		public boolean Editar(Boleta boleta){
+			int index = IndexBoleta(boleta);
+			Boleta.set(index, boleta);
 			return true;
 		}
 		
@@ -243,6 +324,33 @@ LinkedList<Gerente> Gerente = new LinkedList<Gerente>();
 			return 0;
 		
 		}
+		public int IndexProducto(Producto productos){
+			Producto aux2 = new Producto();
+			for (int i = 0; i < Producto.size(); i++) {
+				System.out.println(Producto.get(i));
+	           aux2=Producto.get(i);
+	           String aux = aux2.getId_stock();
+	           if(aux.equals(productos.getId_stock())) {
+	        	   return i ;   
+	           }
+			}
+			return 0;
+		
+		}
+		
+		public int IndexBoleta(Boleta boleta){
+			Boleta aux2 = new Boleta();
+			for (int i = 0; i < Boleta.size(); i++) {
+				System.out.println(Boleta.get(i));
+	           aux2=Boleta.get(i);
+	           String aux = aux2.getId_boleta();
+	           if(aux.equals(boleta.getId_boleta())) {
+	        	   return i ;   
+	           }
+			}
+			return 0;
+		
+		}
 		
 		public LinkedList<Sucursal> getSucursal() {
 			return Sucursal;
@@ -273,7 +381,21 @@ LinkedList<Gerente> Gerente = new LinkedList<Gerente>();
 			Gerente = gerente;
 		}
 
-		
+		public LinkedList<Producto> getProducto() {
+			return Producto;
+		}
+
+		public void setProducto(LinkedList<Producto> productos) {
+			Producto = productos;
+		}
+
+		public LinkedList<Boleta> getBoleta() {
+			return Boleta;
+		}
+
+		public void setBoleta(LinkedList<Boleta> boleta) {
+			Boleta = boleta;
+		}
 		
 		
 }

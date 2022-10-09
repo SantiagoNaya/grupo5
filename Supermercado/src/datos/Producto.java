@@ -12,6 +12,12 @@ public Producto(String articulo, String cantidad, String id_stock) {
 	this.id_stock = id_stock;
 }
 
+
+public Producto() {
+	super();
+}
+
+
 public String getArticulo() {
 	return articulo;
 }
