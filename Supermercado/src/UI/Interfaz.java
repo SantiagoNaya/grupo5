@@ -1,8 +1,12 @@
 package UI;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Scanner;
 
-import Datos.Alumno;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 import datos.*;
 import Negocio.Stock;
 
@@ -37,6 +41,7 @@ public class Interfaz {
 		p1.setCantidad("20");
 		p1.setId_stock("3");
 		Productos.add(p3);
+		
 	}
 	
 	private void imprimirMenu() {
@@ -50,22 +55,30 @@ public class Interfaz {
 		
 		int opcion = entrada.nextInt();
 		switch (opcion) {
-		case 1: Sucursal();
+		case 1: 
+			Sucursal sucursal = new Sucursal();
+			menuAlter();
+			//Sucursal();
 			break;
-		case 2: SectorVenta();
+		case 2:
+			
+			//SectorVenta();
 			break;
-		case 3: Operario();
+		case 3: 
+			//Operario();
 			break;
-		case 4: Gerente();
+		case 4:
+			//Gerente();
 			break;
-		case 5: Salir();
+		case 5:
+			//Salir();
 		break;
 			default: System.out.println("Se eligio una opción incorrecta volver a intentar");
 				break;
 			}
 	}
 	
-	private void menuAlter(Sucursal sucursal) {
+	private void menuAlter() {
 		System.out.println("1.Crear pedido");
 		System.out.println("2.Ver productos");
 		System.out.println("3.Salir");
@@ -74,9 +87,11 @@ public class Interfaz {
 		switch (opcion) {
 		case 1: Crear();
 			break;
-		case 2: Buscar();
+		case 2: 
+		//	Buscar();
 			break;
-		case 3: Salir();
+		case 3: 
+			//Salir();
 			break;
 			default: System.out.println("Se eligio una opción incorrecta volver a intentar");
 				break;
@@ -84,34 +99,46 @@ public class Interfaz {
 	}
 	
 	private void Crear() {
+
+		
+		//Podes utilizar los array de string para mostrar la lista de productos y queda un poco mas lindo y mostras las opciones directamtne 
+		String[] Producto = {"Queso", "Pan", "Coca cola", "Papas fritas", "Patys", "Helado"};
+		Object selection = JOptionPane.showInputDialog(null,"Elija un producto",
+		"Seleccion",JOptionPane.QUESTION_MESSAGE,null,Producto,null);
+	
+		JOptionPane.showMessageDialog(null, selection);
+	
 		System.out.println("Ingrese la fecha de envio");		
 		Boleta boleta = new Boleta();
 		boleta.setFecha(entrada.next());
 		System.out.println("Elija los productos a comprar");
 		
 		
-		
 		int opcion = entrada.nextInt();
 		switch (opcion) {
 		
-		case 1: SobreCarga(p1);
+		case 1: 
 		
 			break;
-		case 2: SobreCarga(p2);
+		case 2: 
+			//SobreCarga(p2);
 		
 		break;
 			
-		case 3: SobreCarga(p3);
+		case 3: 
+			
+			//SobreCarga(p3);
 		
 		break;
-		case 4: Salir();
+		case 4: 
+			//Salir();
 			break;
 			default: System.out.println("Se eligio una opción incorrecta volver a intentar");
 				break;
 			}
 		boleta.setContenido(entrada.next());
 		System.out.println("Ingrese el DNI: ");
-		alumno.setDni(entrada.next());
+		/*alumno.setDni(entrada.next());
 		 if(legajo.add(alumno)== true) {
 			 System.out.println("Se agrego correctamente el alumno");
 		 }else {
@@ -129,5 +156,7 @@ public class Interfaz {
 		
 		
 			
+	}
+	*/
 	}
 }
