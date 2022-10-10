@@ -12,6 +12,7 @@ public class Stock {
 	public static void main(String[] args) {
 		
 		Interfaz i1 = new Interfaz();
+		
 	}
 		LinkedList<Sucursal> Sucursal = new LinkedList<Sucursal>();
 		
