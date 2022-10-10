@@ -124,7 +124,7 @@ public class Interfaz {
 		 
 	}
 	private void verPerfiles() {
-		System.out.println(Productos);
+		System.out.println(Productos.getProducto());
 		imprimirMenu();
 		
 	}
