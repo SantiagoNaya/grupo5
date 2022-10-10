@@ -50,14 +50,14 @@ public class Interfaz {
 		
 		int opcion = entrada.nextInt();
 		switch (opcion) {
-		case 1: Sucursal();
+		case 1: menuAlter();
 			break;
-		case 2: SectorVenta();
-			break;
-		case 3: Operario();
-			break;
-		case 4: Gerente();
-			break;
+		//case 2: SectorVenta();
+		//	break;
+	//	case 3: Operario();
+		//	break;
+	//	case 4: Gerente();
+		//	break;
 		case 5: Salir();
 		break;
 			default: System.out.println("Se eligio una opción incorrecta volver a intentar");
@@ -65,7 +65,7 @@ public class Interfaz {
 			}
 	}
 	
-	private void menuAlter(Sucursal sucursal) {
+	private void menuAlter() {
 		System.out.println("1.Crear pedido");
 		System.out.println("2.Ver productos");
 		System.out.println("3.Salir");
@@ -74,7 +74,7 @@ public class Interfaz {
 		switch (opcion) {
 		case 1: Crear();
 			break;
-		case 2: Buscar();
+		case 2: verPerfiles();
 			break;
 		case 3: Salir();
 			break;
@@ -109,25 +109,28 @@ public class Interfaz {
 			default: System.out.println("Se eligio una opción incorrecta volver a intentar");
 				break;
 			}
+		
 		boleta.setContenido(entrada.next());
-		System.out.println("Ingrese el DNI: ");
-		alumno.setDni(entrada.next());
-		 if(legajo.add(alumno)== true) {
-			 System.out.println("Se agrego correctamente el alumno");
+		
+		
+		 if(Productos.add(boleta)== true) {
+			 System.out.println("El producto se agregó correctamente");
+				System.out.println("Si deseas agregar otro producto ");
+				System.out.println("Seleccione la opcion correspondiente");	
 		 }else {
-			 System.out.println("no se pudo agregar correctamente");
-				System.out.println("si deseas agregar nuevamente un contacto ");
-				System.out.println("seleccionar opcion 1");	
+			 System.out.println("No hay stock del producto selecionado");	
 		 }
 		 imprimirMenu();
 		 
 	}
-	private void menuAlter( ) {
-		System.out.println("1.Borrar alumno ");
-		System.out.println("2.Editar alumno");
-		System.out.println("3.Menu principal");
+	private void verPerfiles() {
+		System.out.println(Productos);
+		imprimirMenu();
 		
-		
-			
 	}
+	private void Salir() {
+		System.out.println("El programa finalizo");
+		System.exit(0);
+	}
+	
 }
