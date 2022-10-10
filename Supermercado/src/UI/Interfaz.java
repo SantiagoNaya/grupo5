@@ -101,17 +101,41 @@ public class Interfaz {
 	private void Crear() {
 
 		
-		//Podes utilizar los array de string para mostrar la lista de productos y queda un poco mas lindo y mostras las opciones directamtne 
-		String[] Producto = {"Queso", "Pan", "Coca cola", "Papas fritas", "Patys", "Helado"};
-		Object selection = JOptionPane.showInputDialog(null,"Elija un producto",
-		"Seleccion",JOptionPane.QUESTION_MESSAGE,null,Producto,null);
-	
-		JOptionPane.showMessageDialog(null, selection);
 	
 		System.out.println("Ingrese la fecha de envio");		
 		Boleta boleta = new Boleta();
 		boleta.setFecha(entrada.next());
 		System.out.println("Elija los productos a comprar");
+		
+		
+		int flag =0;
+		
+		do {
+		//Podes utilizar los array de string para mostrar la lista de productos y queda un poco mas lindo y mostras las opciones directamtne 
+		String[] Producto = {"Queso", "Pan", "Coca cola", "Papas fritas", "Patys", "Helado", "salir"};
+		
+		Object selection = JOptionPane.showInputDialog(null,"Elija un producto",
+				"Seleccion",JOptionPane.QUESTION_MESSAGE,null,Producto,null);
+		
+		if(selection.equals("salir")) {
+			flag =1;
+		}else{
+			JOptionPane.showMessageDialog(null, selection);
+		 String cantidad = JOptionPane.showInputDialog(null, "Ingrese cantiad");
+		
+		 boleta.setContenido(selection);
+		 boleta.setCantidad(cantidad);
+		 
+		 if(Productos.add(boleta)) {
+			JOptionPane.showMessageDialog(null, "Se añadio a la boleta el producto : " + selection);
+		 }else {
+				JOptionPane.showMessageDialog(null, "Error al añadirse");
+		 }
+		}
+		
+		
+		}while(flag !=1);
+		
 		
 		
 		int opcion = entrada.nextInt();
@@ -158,5 +182,10 @@ public class Interfaz {
 			
 	}
 	*/
+	}
+
+	private String String(Object showInputDialog) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
