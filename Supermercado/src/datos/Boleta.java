@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Boleta {
 private String id_boleta;
-private String contenido;
+private Object contenido;
 private String cantidad;
 private String fecha;
 
-public Boleta(String id_boleta, String contenido, String fecha, String cantidad) {
+public Boleta(String id_boleta, Object contenido, String fecha, String cantidad) {
 	super();
 	this.id_boleta = id_boleta;
 	this.contenido = contenido;
@@ -32,11 +32,11 @@ public void setId_boleta(String id_boleta) {
 	this.id_boleta = id_boleta;
 }
 
-public String getContenido() {
+public Object getContenido() {
 	return contenido;
 }
 
-public void setContenido(String contenido) {
+public void setContenido(Object contenido) {
 	this.contenido = contenido;
 }
 

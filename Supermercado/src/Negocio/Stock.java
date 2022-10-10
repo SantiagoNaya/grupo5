@@ -2,6 +2,7 @@ package Negocio;
 
 import java.util.LinkedList;
 
+import javax.swing.JOptionPane;
 
 import datos.*;
 
@@ -12,6 +13,7 @@ public class Stock {
 	public static void main(String[] args) {
 		
 		Interfaz i1 = new Interfaz();
+		i1.Login();
 	}
 		LinkedList<Sucursal> Sucursal = new LinkedList<Sucursal>();
 		
@@ -135,8 +137,9 @@ LinkedList<Gerente> Gerente = new LinkedList<Gerente>();
 		
 }
 LinkedList<Producto> Producto = new LinkedList<Producto>();
-		
+		Producto[] producto = new Producto[3];
 		public boolean add(Producto productos) {
+			
 			char [] data = productos.getArticulo().toCharArray();
 			
 			
@@ -149,7 +152,8 @@ LinkedList<Producto> Producto = new LinkedList<Producto>();
 					
 					if(data.length > 0) {
 							
-						Producto.add(productos);
+						int i = Producto.size()+1;
+						producto[i] = productos;
 								return true;
 							}
 						}
@@ -161,28 +165,23 @@ LinkedList<Producto> Producto = new LinkedList<Producto>();
 			
 LinkedList<Boleta> Boleta = new LinkedList<Boleta>();
 		
-		public boolean add(Boleta boleta) {
-			char [] data = boleta.getContenido().toCharArray();
-			
-			
-			if(data.length >= 3 && data.length <= 100 ) {
-				String fecha = boleta.getFecha();
-				data = fecha.toCharArray();
-				if(data.length == 10 ) {
-					String cantidad = boleta.getCantidad();
-					data = cantidad.toCharArray();
-					if(data.length >= 1 ) {
-						Boleta.add(boleta);
-								return true;
-							}
-						}
-			}
-					
-					
-			return false;
-				}
-		
+		@Override
+public String toString() {
+	return "Stock [Boleta=" + Boleta + "]";
+}
 
+		public boolean add(Boleta boleta) {
+	
+			
+			if(boleta.getCantidad().equals("0")) {
+				return false;
+			}else {
+				Boleta.add(boleta);
+				JOptionPane.showMessageDialog(null, boleta);
+				return true;
+			}
+				
+			}
 		
 		public boolean Borrar(Sucursal sucursal) {
 			

@@ -1,8 +1,12 @@
 package UI;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Scanner;
 
-import Datos.Alumno;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 import datos.*;
 import Negocio.Stock;
 
@@ -37,6 +41,7 @@ public class Interfaz {
 		p1.setCantidad("20");
 		p1.setId_stock("3");
 		Productos.add(p3);
+		
 	}
 	
 	private void imprimirMenu() {
@@ -50,15 +55,23 @@ public class Interfaz {
 		
 		int opcion = entrada.nextInt();
 		switch (opcion) {
-		case 1: menuAlter();
+		case 1: 
+			Sucursal sucursal = new Sucursal();
+			menuAlter();
+			//Sucursal();
 			break;
-		//case 2: SectorVenta();
-		//	break;
-	//	case 3: Operario();
-		//	break;
-	//	case 4: Gerente();
-		//	break;
-		case 5: Salir();
+		case 2:
+			
+			//SectorVenta();
+			break;
+		case 3: 
+			//Operario();
+			break;
+		case 4:
+			//Gerente();
+			break;
+		case 5:
+			//Salir();
 		break;
 			default: System.out.println("Se eligio una opci贸n incorrecta volver a intentar");
 				break;
@@ -74,9 +87,11 @@ public class Interfaz {
 		switch (opcion) {
 		case 1: Crear();
 			break;
-		case 2: verPerfiles();
+		case 2: 
+		//	Buscar();
 			break;
-		case 3: Salir();
+		case 3: 
+			//Salir();
 			break;
 			default: System.out.println("Se eligio una opci贸n incorrecta volver a intentar");
 				break;
@@ -84,53 +99,93 @@ public class Interfaz {
 	}
 	
 	private void Crear() {
+
+		
+	
 		System.out.println("Ingrese la fecha de envio");		
 		Boleta boleta = new Boleta();
 		boleta.setFecha(entrada.next());
 		System.out.println("Elija los productos a comprar");
 		
 		
+		int flag =0;
+		
+		do {
+		//Podes utilizar los array de string para mostrar la lista de productos y queda un poco mas lindo y mostras las opciones directamtne 
+		String[] Producto = {"Queso", "Pan", "Coca cola", "Papas fritas", "Patys", "Helado", "salir"};
+		
+		Object selection = JOptionPane.showInputDialog(null,"Elija un producto",
+				"Seleccion",JOptionPane.QUESTION_MESSAGE,null,Producto,null);
+		
+		if(selection.equals("salir")) {
+			flag =1;
+		}else{
+			JOptionPane.showMessageDialog(null, selection);
+		 String cantidad = JOptionPane.showInputDialog(null, "Ingrese cantiad");
+		
+		 boleta.setContenido(selection);
+		 boleta.setCantidad(cantidad);
+		 
+		 if(Productos.add(boleta)) {
+			JOptionPane.showMessageDialog(null, "Se a馻dio a la boleta el producto : " + selection);
+		 }else {
+				JOptionPane.showMessageDialog(null, "Error al a馻dirse");
+		 }
+		}
+		
+		
+		}while(flag !=1);
+		
+		
 		
 		int opcion = entrada.nextInt();
 		switch (opcion) {
 		
-		case 1: SobreCarga(p1);
+		case 1: 
 		
 			break;
-		case 2: SobreCarga(p2);
+		case 2: 
+			//SobreCarga(p2);
 		
 		break;
 			
-		case 3: SobreCarga(p3);
+		case 3: 
+			
+			//SobreCarga(p3);
 		
 		break;
-		case 4: Salir();
+		case 4: 
+			//Salir();
 			break;
 			default: System.out.println("Se eligio una opci贸n incorrecta volver a intentar");
 				break;
 			}
-		
 		boleta.setContenido(entrada.next());
-		
-		
-		 if(Productos.add(boleta)== true) {
-			 System.out.println("El producto se agreg贸 correctamente");
-				System.out.println("Si deseas agregar otro producto ");
-				System.out.println("Seleccione la opcion correspondiente");	
+		System.out.println("Ingrese el DNI: ");
+		/*alumno.setDni(entrada.next());
+		 if(legajo.add(alumno)== true) {
+			 System.out.println("Se agrego correctamente el alumno");
 		 }else {
-			 System.out.println("No hay stock del producto selecionado");	
+			 System.out.println("no se pudo agregar correctamente");
+				System.out.println("si deseas agregar nuevamente un contacto ");
+				System.out.println("seleccionar opcion 1");	
 		 }
 		 imprimirMenu();
 		 
 	}
-	private void verPerfiles() {
-		System.out.println(Productos.getProducto());
-		imprimirMenu();
+	private void menuAlter( ) {
+		System.out.println("1.Borrar alumno ");
+		System.out.println("2.Editar alumno");
+		System.out.println("3.Menu principal");
 		
+		
+			
 	}
-	private void Salir() {
-		System.out.println("El programa finalizo");
-		System.exit(0);
+	*/
 	}
-	
+
+	private String String(Object showInputDialog) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
