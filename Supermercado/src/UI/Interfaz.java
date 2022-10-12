@@ -160,6 +160,20 @@ public class Interfaz {
 		
 		JOptionPane.showMessageDialog(null, Producto);
 		
+		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Para acceder a la opción escriba el numero que corresponda:\n"+
+				"1.Crear pedido\n"+ "2.Ver productos\n"+ "3.Salir"));
+		switch (opcion) {
+		case 1: Crear();
+			break;
+		case 2: 
+			verPerfiles();
+			break;
+		case 3: 
+			Salir();
+			break;
+			default: JOptionPane.showMessageDialog(null,"Se eligio una opción incorrecta volver a intentar");
+				break;
+			}
 		
 	}
 	
