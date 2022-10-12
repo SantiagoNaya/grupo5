@@ -165,9 +165,9 @@ LinkedList<Producto> Producto = new LinkedList<Producto>();
 			
 LinkedList<Boleta> Boleta = new LinkedList<Boleta>();
 		
-		@Override
+@Override
 public String toString() {
-	return "Stock [Boleta=" + Boleta + "]";
+return "Stock [Boleta=" + Boleta + "]";
 }
 
 		public boolean add(Boleta boleta) {
@@ -342,8 +342,8 @@ public boolean Borrar(Boleta boleta) {
 			for (int i = 0; i < Boleta.size(); i++) {
 				System.out.println(Boleta.get(i));
 	           aux2=Boleta.get(i);
-	           String aux = aux2.getId_boleta();
-	           if(aux.equals(boleta.getId_boleta())) {
+	           int aux = aux2.getId_boleta();
+	           if(aux == (boleta.getId_boleta())) {
 	        	   return i ;   
 	           }
 			}

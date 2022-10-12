@@ -1,9 +1,10 @@
 package UI;
 
 import java.util.Arrays;
+
 import java.util.LinkedList;
 import java.util.Scanner;
-
+import javax.swing.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -20,8 +21,8 @@ public class Interfaz {
 	
 	public void Login() {
 		
+		JOptionPane.showMessageDialog(null, "隆Bienvenido Usuario!");
 		
-		System.out.println("Bienvenido");
 		imprimirMenu();
 	}
 	
@@ -45,15 +46,12 @@ public class Interfaz {
 	}
 	
 	private void imprimirMenu() {
-		System.out.println("Por favor escoja una de los siguientes niveles");
-		System.out.println("Para acceder a la opci贸n escriba el numero que corresponda");
-		System.out.println("1.Sucursal");
-		System.out.println("2.SectorVenta");
-		System.out.println("3.Operario");
-		System.out.println("4.Gerente");
-		System.out.println("5.Salir");
 		
-		int opcion = entrada.nextInt();
+		
+		
+		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Por favor escoja una de los siguientes niveles:\n"
+				 + "1.Sucursal\n" + "2.SectorVenta\n"+ 
+				"3.Operario\n" + "4.Gerente\n" + "5.Salir"));
 		switch (opcion) {
 		case 1: 
 			Sucursal sucursal = new Sucursal();
@@ -71,29 +69,30 @@ public class Interfaz {
 			//Gerente();
 			break;
 		case 5:
-			//Salir();
+			   Salir();
 		break;
-			default: System.out.println("Se eligio una opci贸n incorrecta volver a intentar");
+			default: JOptionPane.showMessageDialog(null,"Se eligio una opci贸n incorrecta volver a intentar");
 				break;
 			}
 	}
 	
 	private void menuAlter() {
-		System.out.println("1.Crear pedido");
-		System.out.println("2.Ver productos");
-		System.out.println("3.Salir");
 		
-		int opcion = entrada.nextInt();
+		
+		
+		
+		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Para acceder a la opci贸n escriba el numero que corresponda:\n"+
+				"1.Crear pedido\n"+ "2.Ver productos\n"+ "3.Salir"));
 		switch (opcion) {
 		case 1: Crear();
 			break;
 		case 2: 
-		//	Buscar();
+			verPerfiles();
 			break;
 		case 3: 
-			//Salir();
+			Salir();
 			break;
-			default: System.out.println("Se eligio una opci贸n incorrecta volver a intentar");
+			default: JOptionPane.showMessageDialog(null,"Se eligio una opci贸n incorrecta volver a intentar");
 				break;
 			}
 	}
@@ -102,90 +101,70 @@ public class Interfaz {
 
 		
 	
-		System.out.println("Ingrese la fecha de envio");		
+				
 		Boleta boleta = new Boleta();
-		boleta.setFecha(entrada.next());
-		System.out.println("Elija los productos a comprar");
+		boleta.setFecha(JOptionPane.showInputDialog("Ingrese la fecha de envio:"));
+		
 		
 		
 		int flag =0;
 		
 		do {
 		//Podes utilizar los array de string para mostrar la lista de productos y queda un poco mas lindo y mostras las opciones directamtne 
-		String[] Producto = {"Queso", "Pan", "Coca cola", "Papas fritas", "Patys", "Helado", "salir"};
+		String[] Producto = {"Queso", "Pan", "Coca cola", "Papas fritas", "Patys", "Helado", "Salir"};
 		
-		Object selection = JOptionPane.showInputDialog(null,"Elija un producto",
+		Object selection = JOptionPane.showInputDialog(null,"Elija un producto:",
 				"Seleccion",JOptionPane.QUESTION_MESSAGE,null,Producto,null);
 		
-		if(selection.equals("salir")) {
+		if(selection.equals("Salir")) {
 			flag =1;
 		}else{
 			JOptionPane.showMessageDialog(null, selection);
-		 String cantidad = JOptionPane.showInputDialog(null, "Ingrese cantiad");
+		 String cantidad = JOptionPane.showInputDialog(null, "Ingrese cantidad:");
+		 
 		
 		 boleta.setContenido(selection);
 		 boleta.setCantidad(cantidad);
 		 
 		 if(Productos.add(boleta)) {
-			JOptionPane.showMessageDialog(null, "Se a馻dio a la boleta el producto : " + selection);
+			
+			 int opcion = Integer.parseInt(JOptionPane.showInputDialog("Para acceder a la opci贸n escriba el numero que corresponda:\n"+
+						"1.Crear otro Pedido\n" + "2.Salir"));
+				switch (opcion) {
+				case 1: Crear();
+					break;
+				case 2: Salir();
+				break;
+				}
 		 }else {
-				JOptionPane.showMessageDialog(null, "Error al a馻dirse");
+				JOptionPane.showMessageDialog(null, "Error del sistema.");
 		 }
-		}
+		} 
 		
 		
 		}while(flag !=1);
 		
 		
 		
-		int opcion = entrada.nextInt();
-		switch (opcion) {
 		
-		case 1: 
-		
-			break;
-		case 2: 
-			//SobreCarga(p2);
-		
-		break;
-			
-		case 3: 
-			
-			//SobreCarga(p3);
-		
-		break;
-		case 4: 
-			//Salir();
-			break;
-			default: System.out.println("Se eligio una opci贸n incorrecta volver a intentar");
-				break;
-			}
-		boleta.setContenido(entrada.next());
-		System.out.println("Ingrese el DNI: ");
-		/*alumno.setDni(entrada.next());
-		 if(legajo.add(alumno)== true) {
-			 System.out.println("Se agrego correctamente el alumno");
-		 }else {
-			 System.out.println("no se pudo agregar correctamente");
-				System.out.println("si deseas agregar nuevamente un contacto ");
-				System.out.println("seleccionar opcion 1");	
-		 }
-		 imprimirMenu();
-		 
-	}
-	private void menuAlter( ) {
-		System.out.println("1.Borrar alumno ");
-		System.out.println("2.Editar alumno");
-		System.out.println("3.Menu principal");
-		
-		
-			
-	}
-	*/
 	}
 
 	private String String(Object showInputDialog) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	private void verPerfiles() {
+		
+		String[] Producto = {"Listado de productos: \n","Queso\n", "Pan\n", "Coca cola\n", "Papas fritas\n", "Patys\n", "Helado"};
+		
+		JOptionPane.showMessageDialog(null, Producto);
+		
+		
+	}
+	
+	private void Salir() {
+		JOptionPane.showMessageDialog(null,"隆Hasta luego!");
+		System.exit(0);
 	}
 }
