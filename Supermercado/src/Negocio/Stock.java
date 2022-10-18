@@ -12,6 +12,7 @@ public class Stock {
 
 	public static void main(String[] args) {
 		
+//interfaz de ventas agregar swich;
 		Interfaz i1 = new Interfaz();
 		i1.Login();
 	}
