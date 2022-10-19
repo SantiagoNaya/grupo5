@@ -12,38 +12,19 @@ public class Stock {
 
 	public static void main(String[] args) {
 		
-//interfaz de ventas agregar swich;
+
 		Interfaz i1 = new Interfaz();
+		Interfaz i2 = new Interfaz();
+		i2.Ingresar();
 		i1.Login();
+		
 	}
 		LinkedList<Sucursal> Sucursal = new LinkedList<Sucursal>();
 		
 		public boolean add(Sucursal sucursal) {
-			char [] data = sucursal.getNombre().toCharArray();
 			
-			if(data.length >= 3 && data.length <= 60 ) {
-				String password = sucursal.getPassword();
-				data = password.toCharArray();
-				if(data.length >= 3 && data.length <= 60 ) {
-					String dni = sucursal.getDni();
-					data = dni.toCharArray();
-					if(data.length == 8 ) {
-						String id_sucursal = sucursal.getId_sucursal();
-						data = id_sucursal.toCharArray();
-					if(data.length >= 0) {
-							String nombre_sucursal = sucursal.getNombre_sucursal();
-							data = id_sucursal.toCharArray();
-							if(data.length >= 3 && data.length <= 60  ) {
-								Sucursal.add(sucursal);
-								return true;
-							}
-						}
-					}
 					
-					
-					
-				}
-			}
+			
 			return false;
 		
 }
@@ -57,11 +38,11 @@ LinkedList<Sectorventa> SectorVenta = new LinkedList<Sectorventa>();
 				String password = Sectorventa.getPassword();
 				data = password.toCharArray();
 				if(data.length >= 3 && data.length <= 60 ) {
-					String dni = Sectorventa.getDni();
-					data = dni.toCharArray();
+					int dni = Sectorventa.getDni();
+				
 					if(data.length == 8 ) {
-						String id_venta = Sectorventa.getId_venta();
-						data = id_venta.toCharArray();
+						int id_venta = Sectorventa.getId_venta();
+						
 					if(data.length >= 0) {
 							
 								SectorVenta.add(Sectorventa);
@@ -87,11 +68,11 @@ LinkedList<Operario> Operarios = new LinkedList<Operario>();
 				String password = operarios.getPassword();
 				data = password.toCharArray();
 				if(data.length >= 3 && data.length <= 60 ) {
-					String dni = operarios.getDni();
-					data = dni.toCharArray();
+					int dni = operarios.getDni();
+					
 					if(data.length == 8 ) {
-						String id_operario = operarios.getId_operario();
-						data = id_operario.toCharArray();
+						int id_operario = operarios.getId_operario();
+						
 					if(data.length >= 0) {
 							
 						Operarios.add(operarios);
@@ -117,11 +98,11 @@ LinkedList<Gerente> Gerente = new LinkedList<Gerente>();
 				String password = gerente.getPassword();
 				data = password.toCharArray();
 				if(data.length >= 3 && data.length <= 60 ) {
-					String dni = gerente.getDni();
-					data = dni.toCharArray();
+					int dni = gerente.getDni();
+					
 					if(data.length == 8 ) {
-						String id_gerente = gerente.getId_gerente();
-						data = id_gerente.toCharArray();
+						int id_gerente = gerente.getId_gerente();
+						
 					if(data.length >= 0) {
 							
 						Gerente.add(gerente);
@@ -275,10 +256,7 @@ public boolean Borrar(Boleta boleta) {
 			for (int i = 0; i < Sucursal.size(); i++) {
 				System.out.println(Sucursal.get(i));
 	           aux2=Sucursal.get(i);
-	           String aux = aux2.getDni();
-	           if(aux.equals(sucursal.getDni())) {
-	        	   return i ;   
-	           }
+	           
 			}
 			return 0;
 		
@@ -290,10 +268,7 @@ public boolean Borrar(Boleta boleta) {
 			for (int i = 0; i < SectorVenta.size(); i++) {
 				System.out.println(SectorVenta.get(i));
 	           aux2=SectorVenta.get(i);
-	           String aux = aux2.getDni();
-	           if(aux.equals(Sectorventa.getDni())) {
-	        	   return i ;   
-	           }
+	          
 			}
 			return 0;
 		
@@ -303,10 +278,8 @@ public boolean Borrar(Boleta boleta) {
 			for (int i = 0; i < Operarios.size(); i++) {
 				System.out.println(Operarios.get(i));
 	           aux2=Operarios.get(i);
-	           String aux = aux2.getDni();
-	           if(aux.equals(operarios.getDni())) {
-	        	   return i ;   
-	           }
+	          
+	           
 			}
 			return 0;
 		
@@ -316,10 +289,7 @@ public boolean Borrar(Boleta boleta) {
 			for (int i = 0; i < Gerente.size(); i++) {
 				System.out.println(Gerente.get(i));
 	           aux2=Gerente.get(i);
-	           String aux = aux2.getDni();
-	           if(aux.equals(gerente.getDni())) {
-	        	   return i ;   
-	           }
+	          
 			}
 			return 0;
 		
@@ -329,10 +299,7 @@ public boolean Borrar(Boleta boleta) {
 			for (int i = 0; i < Producto.size(); i++) {
 				System.out.println(Producto.get(i));
 	           aux2=Producto.get(i);
-	           String aux = aux2.getId_stock();
-	           if(aux.equals(productos.getId_stock())) {
-	        	   return i ;   
-	           }
+	          
 			}
 			return 0;
 		
@@ -343,10 +310,7 @@ public boolean Borrar(Boleta boleta) {
 			for (int i = 0; i < Boleta.size(); i++) {
 				System.out.println(Boleta.get(i));
 	           aux2=Boleta.get(i);
-	           int aux = aux2.getId_boleta();
-	           if(aux == (boleta.getId_boleta())) {
-	        	   return i ;   
-	           }
+	         
 			}
 			return 0;
 		

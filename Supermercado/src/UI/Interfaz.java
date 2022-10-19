@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+
 import datos.*;
 import Negocio.Stock;
 
@@ -19,8 +20,33 @@ public class Interfaz {
 	static Stock Productos = new Stock();
 	
 	
-	public void Login() {
+	
+	public void Ingresar() {
 		
+		Sucursal sucursal = new Sucursal();
+		sucursal.setDni(Integer.parseInt(JOptionPane.showInputDialog("Ingrese dni")));
+		sucursal.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
+		sucursal.setNombre_sucursal(JOptionPane.showInputDialog("Ingrese nombre de la sucursal:"));
+		sucursal.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
+		
+		
+		
+		 if(Productos.add(sucursal)== true) {
+			 JOptionPane.showMessageDialog(null, "La sucursal se agregó correctamente.");
+		 }else {
+			 JOptionPane.showMessageDialog(null, "La sucursal no se agregó.");
+		 }
+		 JOptionPane.showMessageDialog(null, sucursal);
+		 imprimirMenu();
+		 
+		 
+	}
+	
+	
+	public void Login() {
+
+		
+		 
 		JOptionPane.showMessageDialog(null, "¡Bienvenido Usuario!");
 		
 		imprimirMenu();
@@ -87,7 +113,7 @@ public class Interfaz {
 		case 1: Crear();
 			break;
 		case 2: 
-			verPerfiles();
+			   verPerfiles();
 			break;
 		case 3: 
 			Salir();
@@ -181,4 +207,5 @@ public class Interfaz {
 		JOptionPane.showMessageDialog(null,"¡Hasta luego!");
 		System.exit(0);
 	}
+	
 }
