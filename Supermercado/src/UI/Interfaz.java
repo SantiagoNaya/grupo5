@@ -10,27 +10,31 @@ import javax.swing.JOptionPane;
 import UI.Interfazventas;
 
 import datos.*;
-import Negocio.Stock;
+import Negocio.*;
+
 
 public class Interfaz {
 
 	
 	static Scanner entrada = new Scanner(System.in);
 	
-	static Stock Productos = new Stock();
+	static ListadoProducto Productos = new ListadoProducto();
+	
+	static ListadoUsuario Usuarios = new ListadoUsuario();
+	
+	static ListadoBoleta Boletas = new ListadoBoleta();
 	
 	
 	
-	
-	private void Ingresar() {
+	private void IngresarAdmin() {
 		
-		Cliente sucursal = new Cliente();
-		 sucursal.setDni(Integer.parseInt(JOptionPane.showInputDialog("Ingrese dni")));
-		 sucursal.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
-		 sucursal.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
-		 sucursal.setNivel(Integer.parseInt(JOptionPane.showInputDialog("Ingrese nivel:")));
+		Adminventas adminventa = new Adminventas();
+		adminventa.setDni(JOptionPane.showInputDialog("Ingrese dni"));
+		adminventa.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
+		adminventa.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
+		adminventa.setNivel(Integer.parseInt(JOptionPane.showInputDialog("Ingrese nivel:")));
 		
-		if(Productos.add(sucursal)== true) {
+		if(Usuarios.add(adminventa)== true) {
 			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el usuario.");
 		 }else {
 			 JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el usuario.");
@@ -40,19 +44,38 @@ public class Interfaz {
 	}
 	
 	
+	private void IngresarOperario() {
+		
+		Operario operarios = new Operario();
+		operarios.setDni(JOptionPane.showInputDialog("Ingrese dni"));
+		operarios.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
+		operarios.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
+		operarios.setNivel(Integer.parseInt(JOptionPane.showInputDialog("Ingrese nivel:")));
+		
+		if(Usuarios.add(operarios)== true) {
+			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el usuario.");
+		 }else {
+			 JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el usuario.");
+		 }
+		 imprimirMenu();
+		 
+	}
+	
+	
+	
 	public void Login() {
 
 		
 		
 		JOptionPane.showMessageDialog(null, "¡Bienvenido Usuario!");
 		
-		Ingresar();
+		IngresarAdmin();
 		imprimirMenu();
 		
 		
 		
 	}
-	
+	/*
 	private void SobreCarga() {
 		
 		Cliente sucursal = new Cliente();
@@ -67,7 +90,7 @@ public class Interfaz {
 	
 	
 	
-	/*
+	
 	 Hasta aqui es cliente. 
 	 
 	 */
@@ -82,7 +105,7 @@ public class Interfaz {
 				"3.Operario\n" + "4.Gerente\n" + "5.Salir"));
 		switch (opcion) {
 		case 1: 
-			Cliente sucursal = new Cliente();
+			
 			menuAlter();
 			//Sucursal();
 			break;

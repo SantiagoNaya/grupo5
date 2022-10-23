@@ -1,29 +1,66 @@
 package datos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+
+
+
 public class Operario extends Usuario  {
 
-	private int id_operario;
+	
 
-public int getId_operario() {
-	return id_operario;
-}
+	
+	Conexion con = new Conexion();
+
+    Connection conexion = con.conectar();
+
+    PreparedStatement stmt;
+	
+	
+	
+    
+    
+    public boolean guardarOperario(Operario operarios) {
+
+	    String sql = "INSERT INTO supermercado.usuario(dni, nombre,password, nivel ) VALUES (?,?,?,?)"; 
+
+	        try {
+
+	            stmt = conexion.prepareStatement(sql);
+	            stmt.setString(1,operarios.getDni());
+	            stmt.setString(2,operarios.getNombre());
+	            stmt.setString(3,operarios.getPassword());
+	            stmt.setInt(4,operarios.getNivel());
+
+	            stmt.executeUpdate();
+	            return true;
+
+	        } catch (Exception e) {
+	            // TODO: handle exception
+	            System.out.println("error");
+	            return false;
+	        }
+	    }
+    
+    
 
 
-
-public void setId_operario(int id_operario) {
-	this.id_operario = id_operario;
-}
-
-public Operario(String nombre, String password, String dni, int nivel, int id_operario) {
-	super(nombre, password, dni, nivel=1);
-	this.id_operario = id_operario;
+public Operario(String nombre, String password, String dni, int nivel) {
+	super(nombre, password, dni, nivel);
+	
 }
 
 public Operario() {
 	super();
 }
+
+
+
+
 @Override
 public String toString() {
-	return "Operario [id_operario=" + id_operario + "]";
+	return "Operario [getNombre()=" + getNombre() + ", getDni()=" + getDni() + ", getNivel()=" + getNivel() + "]";
 }
+
 }

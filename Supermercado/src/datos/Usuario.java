@@ -14,15 +14,10 @@ public class Usuario  {
 		this.nivel = nivel;
 	}
 	
-	
-	
-	
-	
+		
 	public Usuario() {
 		super();
 	}
-
-
 
 
 
