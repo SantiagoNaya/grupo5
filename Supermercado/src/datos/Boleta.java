@@ -5,10 +5,10 @@ import java.util.Date;
 public class Boleta {
 private int id_boleta= 1;
 private Object contenido;
-private String cantidad;
-private String fecha;
+private int cantidad;
+private Date fecha;
 
-public Boleta(int id_boleta, Object contenido, String fecha, String cantidad) {
+public Boleta(int id_boleta, Object contenido, Date fecha, int cantidad) {
 	super();
 	this.id_boleta = id_boleta;
 	this.contenido = contenido;

@@ -1,8 +1,15 @@
 package UI;
 
+import javax.swing.JOptionPane;
+
 public class Interfazventas {
 	
 public void login() {
-System.out.println("Bienvenido");
+	
+	
+JOptionPane.showMessageDialog(null,"Bienvenido Ventas");
+
+
+
 }
 }

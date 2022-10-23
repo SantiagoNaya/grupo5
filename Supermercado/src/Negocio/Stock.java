@@ -4,9 +4,11 @@ import java.util.LinkedList;
 
 import javax.swing.JOptionPane;
 
+
+import UI.Interfazventas;
 import datos.*;
 
-import UI.Interfaz;
+import UI.*;
 
 public class Stock {
 
@@ -15,19 +17,23 @@ public class Stock {
 
 		Interfaz i1 = new Interfaz();
 		Interfaz i2 = new Interfaz();
-		i2.Ingresar();
-		i1.Login();
+		
+		
+		
+		
+		
+	    i1.Login();
 		
 	}
-		LinkedList<Sucursal> Sucursal = new LinkedList<Sucursal>();
+	LinkedList<Sucursal> sucursal = new LinkedList<Sucursal>();
+	
+	public boolean add(Sucursal sucursal) {
 		
-		public boolean add(Sucursal sucursal) {
-			
-					
-			
-			return false;
-		
-}
+		if(sucursal.guardarSucursal(sucursal)) {			
+			return true;
+		}
+		return false;
+	}
 LinkedList<Sectorventa> SectorVenta = new LinkedList<Sectorventa>();
 		
 		public boolean add(Sectorventa Sectorventa) {

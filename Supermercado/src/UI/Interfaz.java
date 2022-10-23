@@ -7,7 +7,7 @@ import java.util.Scanner;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+import UI.Interfazventas;
 
 import datos.*;
 import Negocio.Stock;
@@ -21,24 +21,21 @@ public class Interfaz {
 	
 	
 	
-	public void Ingresar() {
+	
+	private void Ingresar() {
 		
 		Sucursal sucursal = new Sucursal();
-		sucursal.setDni(Integer.parseInt(JOptionPane.showInputDialog("Ingrese dni")));
-		sucursal.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
-		sucursal.setNombre_sucursal(JOptionPane.showInputDialog("Ingrese nombre de la sucursal:"));
-		sucursal.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
+		 sucursal.setDni(Integer.parseInt(JOptionPane.showInputDialog("Ingrese dni")));
+		 sucursal.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
+		 sucursal.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
+		 sucursal.setNivel(Integer.parseInt(JOptionPane.showInputDialog("Ingrese nivel:")));
 		
-		
-		
-		 if(Productos.add(sucursal)== true) {
-			 JOptionPane.showMessageDialog(null, "La sucursal se agregó correctamente.");
+		if(Productos.add(sucursal)== true) {
+			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el usuario.");
 		 }else {
-			 JOptionPane.showMessageDialog(null, "La sucursal no se agregó.");
+			 JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el usuario.");
 		 }
-		 JOptionPane.showMessageDialog(null, sucursal);
 		 imprimirMenu();
-		 
 		 
 	}
 	
@@ -46,30 +43,35 @@ public class Interfaz {
 	public void Login() {
 
 		
-		 
+		
 		JOptionPane.showMessageDialog(null, "¡Bienvenido Usuario!");
 		
+		Ingresar();
 		imprimirMenu();
+		
+		
+		
 	}
 	
 	private void SobreCarga() {
-		Producto p1 = new Producto();
-		p1.setArticulo("Harina");
-		p1.setCantidad("10");
-		p1.setId_stock("1");
-		Productos.add(p1);
-		Producto p2 = new Producto();
-		p1.setArticulo("Carne");
-		p1.setCantidad("15");
-		p1.setId_stock("2");
-		Productos.add(p2);
-		Producto p3 = new Producto();
-		p1.setArticulo("Arroz");
-		p1.setCantidad("20");
-		p1.setId_stock("3");
-		Productos.add(p3);
+		
+		Sucursal sucursal = new Sucursal();
+		sucursal.setDni(123456);
+		sucursal.setNombre("Pepsi");
+		sucursal.setPassword("123456");
+		sucursal.setNivel(1);
+		Productos.add(sucursal);
+		
 		
 	}
+	
+	
+	
+	/*
+	 Hasta aqui es cliente. 
+	 
+	 */
+	
 	
 	private void imprimirMenu() {
 		

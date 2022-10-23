@@ -2,11 +2,11 @@ package datos;
 
 public class Producto {
 private String articulo;
-private String cantidad;
-private String id_stock;
-private String precio;
+private int cantidad;
+private int id_stock;
+private double precio;
 
-public Producto(String articulo, String cantidad, String id_stock, String precio) {
+public Producto(String articulo, int cantidad, int id_stock, double precio) {
 	super();
 	this.articulo = articulo;
 	this.cantidad = cantidad;
@@ -28,29 +28,29 @@ public void setArticulo(String articulo) {
 	this.articulo = articulo;
 }
 
-public String getCantidad() {
+public int getCantidad() {
 	return cantidad;
 }
 
-public void setCantidad(String cantidad) {
+public void setCantidad(int cantidad) {
 	this.cantidad = cantidad;
 }
 
-public String getId_stock() {
+public int getId_stock() {
 	return id_stock;
 }
 
-public void setId_stock(String id_stock) {
+public void setId_stock(int id_stock) {
 	this.id_stock = id_stock;
 }
 
 
-public String getPrecio() {
+public double getPrecio() {
 	return precio;
 }
 
 
-public void setPrecio(String precio) {
+public void setPrecio(double precio) {
 	this.precio = precio;
 }
 
