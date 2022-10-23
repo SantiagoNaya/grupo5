@@ -1,16 +1,16 @@
 package datos;
 
 public class Producto {
-private String articulo;
+private String nombre;
 private int cantidad;
-private int id_stock;
+private int id_producto;
 private double precio;
 
-public Producto(String articulo, int cantidad, int id_stock, double precio) {
+public Producto(String nombre, int cantidad, int id_producto, double precio) {
 	super();
-	this.articulo = articulo;
+	this.nombre = nombre;
 	this.cantidad = cantidad;
-	this.id_stock = id_stock;
+	this.id_producto = id_producto;
 	this.precio= precio;
 }
 
@@ -20,12 +20,12 @@ public Producto() {
 }
 
 
-public String getArticulo() {
-	return articulo;
+public String getNombre() {
+	return nombre;
 }
 
-public void setArticulo(String articulo) {
-	this.articulo = articulo;
+public void setNombre(String nombre) {
+	this.nombre = nombre;
 }
 
 public int getCantidad() {
@@ -36,12 +36,12 @@ public void setCantidad(int cantidad) {
 	this.cantidad = cantidad;
 }
 
-public int getId_stock() {
-	return id_stock;
+public int getId_producto() {
+	return id_producto;
 }
 
-public void setId_stock(int id_stock) {
-	this.id_stock = id_stock;
+public void setId_producto(int id_producto) {
+	this.id_producto = id_producto;
 }
 
 
@@ -57,7 +57,7 @@ public void setPrecio(double precio) {
 
 @Override
 public String toString() {
-	return "Producto [articulo=" + articulo + ", cantidad=" + cantidad + ", id_stock=" + id_stock + ", precio=" + precio
+	return "Producto [articulo=" + nombre + ", cantidad=" + cantidad + ", id_stock=" + id_producto + ", precio=" + precio
 			+ "]";
 }
 

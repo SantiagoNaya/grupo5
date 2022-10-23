@@ -24,7 +24,7 @@ public class Interfaz {
 	
 	private void Ingresar() {
 		
-		Sucursal sucursal = new Sucursal();
+		Cliente sucursal = new Cliente();
 		 sucursal.setDni(Integer.parseInt(JOptionPane.showInputDialog("Ingrese dni")));
 		 sucursal.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
 		 sucursal.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
@@ -55,7 +55,7 @@ public class Interfaz {
 	
 	private void SobreCarga() {
 		
-		Sucursal sucursal = new Sucursal();
+		Cliente sucursal = new Cliente();
 		sucursal.setDni(123456);
 		sucursal.setNombre("Pepsi");
 		sucursal.setPassword("123456");
@@ -82,7 +82,7 @@ public class Interfaz {
 				"3.Operario\n" + "4.Gerente\n" + "5.Salir"));
 		switch (opcion) {
 		case 1: 
-			Sucursal sucursal = new Sucursal();
+			Cliente sucursal = new Cliente();
 			menuAlter();
 			//Sucursal();
 			break;

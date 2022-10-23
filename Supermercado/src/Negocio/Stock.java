@@ -20,23 +20,21 @@ public class Stock {
 		
 		
 		
-		
-		
 	    i1.Login();
 		
 	}
-	LinkedList<Sucursal> sucursal = new LinkedList<Sucursal>();
+	LinkedList<Cliente> sucursal = new LinkedList<Cliente>();
 	
-	public boolean add(Sucursal sucursal) {
+	public boolean add(Cliente sucursal) {
 		
 		if(sucursal.guardarSucursal(sucursal)) {			
 			return true;
 		}
 		return false;
 	}
-LinkedList<Sectorventa> SectorVenta = new LinkedList<Sectorventa>();
+LinkedList<Adminventas> SectorVenta = new LinkedList<Adminventas>();
 		
-		public boolean add(Sectorventa Sectorventa) {
+		public boolean add(Adminventas Sectorventa) {
 			char [] data = Sectorventa.getNombre().toCharArray();
 			
 			
@@ -171,15 +169,15 @@ return "Stock [Boleta=" + Boleta + "]";
 				
 			}
 		
-		public boolean Borrar(Sucursal sucursal) {
+		public boolean Borrar(Cliente sucursal) {
 			
-			if(Sucursal.remove(sucursal)) {			
+			if(Cliente.remove(sucursal)) {			
 				return true; 
 			}else {			
 				return false;
 			}
 	}
-		public boolean Borrar(Sectorventa Sectorventa) {
+		public boolean Borrar(Adminventas Sectorventa) {
 			
 			if(SectorVenta.remove(Sectorventa)) {			
 				return true; 
@@ -224,12 +222,12 @@ public boolean Borrar(Boleta boleta) {
 			}
 		} 
 		
-		public boolean Editar(Sucursal sucursal){
+		public boolean Editar(Cliente sucursal){
 			int index = IndexSucursal(sucursal);
-			Sucursal.set(index, sucursal);
+			Cliente.set(index, sucursal);
 			return true;
 		}
-		public boolean Editar(Sectorventa Sectorventa){
+		public boolean Editar(Adminventas Sectorventa){
 			int index = IndexVenta(Sectorventa);
 			SectorVenta.set(index, Sectorventa);
 			return true;
@@ -257,11 +255,11 @@ public boolean Borrar(Boleta boleta) {
 			return true;
 		}
 		
-		public int IndexSucursal(Sucursal sucursal){
-			Sucursal aux2 = new Sucursal();
-			for (int i = 0; i < Sucursal.size(); i++) {
-				System.out.println(Sucursal.get(i));
-	           aux2=Sucursal.get(i);
+		public int IndexSucursal(Cliente sucursal){
+			Cliente aux2 = new Cliente();
+			for (int i = 0; i < Cliente.size(); i++) {
+				System.out.println(Cliente.get(i));
+	           aux2=Cliente.get(i);
 	           
 			}
 			return 0;
@@ -269,8 +267,8 @@ public boolean Borrar(Boleta boleta) {
 		}
 		
 		
-		public int IndexVenta(Sectorventa Sectorventa){
-			Sectorventa aux2 = new Sectorventa();
+		public int IndexVenta(Adminventas Sectorventa){
+			Adminventas aux2 = new Adminventas();
 			for (int i = 0; i < SectorVenta.size(); i++) {
 				System.out.println(SectorVenta.get(i));
 	           aux2=SectorVenta.get(i);
@@ -322,18 +320,18 @@ public boolean Borrar(Boleta boleta) {
 		
 		}
 		
-		public LinkedList<Sucursal> getSucursal() {
-			return Sucursal;
+		public LinkedList<Cliente> getSucursal() {
+			return Cliente;
 		}
 
-		public void setSucursal(LinkedList<Sucursal> sucursal) {
-			Sucursal = sucursal;
+		public void setSucursal(LinkedList<Cliente> sucursal) {
+			Cliente = sucursal;
 		}
-		public LinkedList<Sectorventa> getVenta() {
+		public LinkedList<Adminventas> getVenta() {
 			return SectorVenta;
 		}
 
-		public void setVenta(LinkedList<Sectorventa> Sectorventa) {
+		public void setVenta(LinkedList<Adminventas> Sectorventa) {
 			SectorVenta = Sectorventa;
 		}
 		public LinkedList<Operario> getOperario() {

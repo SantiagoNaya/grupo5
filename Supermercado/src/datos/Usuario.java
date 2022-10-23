@@ -3,10 +3,10 @@ package datos;
 public class Usuario  {
 	private String nombre;
 	private String password;
-	private int dni;
+	private String dni;
 	private int nivel;
 	
-	public Usuario(String nombre, String password, int dni, int nivel) {
+	public Usuario(String nombre, String password, String dni, int nivel) {
 		super();
 		this.nombre = nombre;
 		this.password = password;
@@ -50,13 +50,13 @@ public class Usuario  {
 
 
 
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
 
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 

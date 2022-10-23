@@ -3,15 +3,14 @@ package datos;
 import java.util.Date;
 
 public class Boleta {
-private int id_boleta= 1;
-private Object contenido;
+	
+private int id_boleta;
 private int cantidad;
 private Date fecha;
 
-public Boleta(int id_boleta, Object contenido, Date fecha, int cantidad) {
+public Boleta(int id_boleta,  Date fecha, int cantidad) {
 	super();
 	this.id_boleta = id_boleta;
-	this.contenido = contenido;
 	this.fecha = fecha;
 	this.cantidad=cantidad;
 	
@@ -33,30 +32,24 @@ public void setId_boleta(int id_boleta) {
 	this.id_boleta = id_boleta;
 }
 
-public Object getContenido() {
-	return contenido;
-}
 
-public void setContenido(Object contenido) {
-	this.contenido = contenido;
-}
 
-public String getFecha() {
+public Date getFecha() {
 	return fecha;
 }
 
-public void setFecha(String fecha) {
+public void setFecha(Date fecha) {
 	this.fecha = fecha;
 }
 
 
-public String getCantidad() {
+public int getCantidad() {
 	return cantidad;
 }
 
 
 
-public void setCantidad(String cantidad) {
+public void setCantidad(int cantidad) {
 	this.cantidad = cantidad;
 }
 
@@ -64,9 +57,11 @@ public void setCantidad(String cantidad) {
 
 @Override
 public String toString() {
-	return "Resumen de boleta\n" + "Boleta nro:  " + id_boleta + "\nfecha de entrega: " + fecha +"\nContenido: " + contenido + "\nCantidad: " + cantidad 
-			;
+	return "Boleta [id_boleta=" + id_boleta + ", cantidad=" + cantidad + ", fecha=" + fecha + "]";
 }
+
+
+
 
 
 
