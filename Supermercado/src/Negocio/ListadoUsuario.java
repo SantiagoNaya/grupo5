@@ -2,7 +2,7 @@ package Negocio;
 
 
 import java.util.LinkedList;
-import javax.swing.JOptionPane;
+
 import datos.*;
 import UI.*;
 

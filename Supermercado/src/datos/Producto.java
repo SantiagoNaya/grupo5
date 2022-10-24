@@ -1,10 +1,42 @@
 package datos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 public class Producto {
 private String nombre;
 private int cantidad;
 private int id_producto;
 private double precio;
+
+Conexion con = new Conexion();
+
+Connection conexion = con.conectar();
+
+PreparedStatement stmt;
+
+public boolean guardarProducto(Producto productos) {
+
+    String sql = "INSERT INTO supermercado.producto(id_producto, cantidad,nombre, precio ) VALUES (?,?,?,?)"; 
+     
+    
+        try {
+
+            stmt = conexion.prepareStatement(sql);
+            stmt.setInt(1,productos.getId_producto());
+            stmt.setInt(2,productos.getCantidad());
+            stmt.setString(3,productos.getNombre());
+            stmt.setDouble(4,productos.getPrecio());
+
+            stmt.executeUpdate();
+            return true;
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println("error");
+            return false;
+        }
+    }
 
 public Producto(String nombre, int cantidad, int id_producto, double precio) {
 	super();
