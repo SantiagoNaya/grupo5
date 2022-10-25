@@ -28,39 +28,66 @@ public class Interfaz {
 	
 	private void IngresarAdmin() {
 		
+		JOptionPane.showMessageDialog(null, "Registro de Admin:");
+		
 		Adminventas adminventa = new Adminventas();
 		adminventa.setDni(JOptionPane.showInputDialog("Ingrese dni"));
 		adminventa.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
-		adminventa.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
-		adminventa.setNivel(Integer.parseInt(JOptionPane.showInputDialog("Ingrese nivel:")));
+		adminventa.setPassword(JOptionPane.showInputDialog("Ingrese password:"));
+		adminventa.setNivel(1);
 		
-		if(Usuarios.add(adminventa)== true) {
-			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el usuario.");
+		if(Usuarios.add(adminventa)) {
+			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el Adminventas.");
+			 Login();
 		 }else {
-			 JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el usuario.");
+			 JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el Adminventas.");
+			 IngresarAdmin();
 		 }
-		 imprimirMenu();
+		
 		 
 	}
 	
 	
 	private void IngresarOperario() {
 		
+		JOptionPane.showMessageDialog(null, "Registro de Operario: ");
+		
 		Operario operarios = new Operario();
 		operarios.setDni(JOptionPane.showInputDialog("Ingrese dni"));
 		operarios.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
-		operarios.setPassword(JOptionPane.showInputDialog("Ingrese nombre de password:"));
-		operarios.setNivel(Integer.parseInt(JOptionPane.showInputDialog("Ingrese nivel:")));
+		operarios.setPassword(JOptionPane.showInputDialog("Ingrese password:"));
+		operarios.setNivel(0);
 		
-		if(Usuarios.add(operarios)== true) {
-			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el usuario.");
+		if(Usuarios.add(operarios)) {
+			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el Operario.");
+			 Login();
 		 }else {
-			 JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el usuario.");
+			 JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el Operario.");
+			 IngresarOperario();
 		 }
-		 imprimirMenu();
+		
 		 
 	}
+private void IngresarGerente() {
+		
+	JOptionPane.showMessageDialog(null, "Registro de Gerente: ");
 	
+		Gerente gerentes = new Gerente();
+		gerentes.setDni(JOptionPane.showInputDialog("Ingrese dni"));
+		gerentes.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
+		gerentes.setPassword(JOptionPane.showInputDialog("Ingrese password:"));
+		gerentes.setNivel(2);
+		// Problema en la validación del if
+		if(Usuarios.add(gerentes)) {
+			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el Gerente.");
+			 Login();
+		 }else {
+			 JOptionPane.showMessageDialog(null, "No se pudo agregar correctamente el Gerente.");
+			 IngresarGerente();
+		 }
+		 
+		 
+	}
 	
 	
 	public void Login() {
@@ -69,16 +96,88 @@ public class Interfaz {
 		
 		JOptionPane.showMessageDialog(null, "¡Bienvenido Usuario!");
 		
-		IngresarAdmin();
-		imprimirMenu();
+		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción correspondiente: \n"
+				+ "1-Iniciar sesión\n"
+				+ "2-Registrarse"));
 		
+		switch (opcion) {
+		case 1: 
+			menuAlter();
+		
+			break;
+		case 2:
+			
+			CrearUsuario();
+			
+			break;
+		
+			default: JOptionPane.showMessageDialog(null,"Se eligio una opción incorrecta volver a intentar");
+				break;
+			}
 		
 		
 	}
-	/*
-	private void SobreCarga() {
+	
+	
+private void CrearUsuario() {
 		
-		Cliente sucursal = new Cliente();
+		
+		
+		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Escoja el tipo de usuario que desea crear:\n "
+				+ "1-Operario\n"
+				+ "2-Gerente\n"
+				+ "3-Adminventas"));
+		
+		switch (opcion) {
+		case 1: 
+			
+			IngresarOperario();
+			break;
+		case 2:
+			
+			IngresarGerente();
+			
+			break;
+		case 3: 
+			IngresarAdmin();
+			break;
+		
+			default: JOptionPane.showMessageDialog(null,"Se eligio una opción incorrecta volver a intentar");
+				break;
+			}
+	}
+	
+private void IniciarSesion() {
+	
+	
+	
+	int opcion = Integer.parseInt(JOptionPane.showInputDialog("Escoja el tipo de usuario que desea crear: \n "
+			+ "1-Operario\n"
+			+ "2-Gerente\n"
+			+ "3-Adminventas"));
+	switch (opcion) {
+	case 1: 
+		
+		IngresarOperario();
+		break;
+	case 2:
+		
+		IngresarGerente();
+		
+		break;
+	case 3: 
+		IngresarAdmin();
+		break;
+	
+		default: JOptionPane.showMessageDialog(null,"Se eligio una opción incorrecta volver a intentar");
+			break;
+		}
+}
+	
+	
+	/*private void SobreCarga() {
+		
+		 sucursal = new Cliente();
 		sucursal.setDni(123456);
 		sucursal.setNombre("Pepsi");
 		sucursal.setPassword("123456");
@@ -86,14 +185,7 @@ public class Interfaz {
 		Productos.add(sucursal);
 		
 		
-	}
-	
-	
-	
-	
-	 Hasta aqui es cliente. 
-	 
-	 */
+	}   */
 	
 	
 	private void imprimirMenu() {

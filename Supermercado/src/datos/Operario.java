@@ -23,7 +23,7 @@ public class Operario extends Usuario  {
     
     public boolean guardarOperario(Operario operarios) {
 
-	    String sql = "INSERT INTO supermercado.usuario(dni, nombre,password, nivel ) VALUES (?,?,?,?)"; 
+	    String sql = "INSERT INTO supermercado.usuario(dni,nombre,password,nivel) VALUES (?,?,?,?)"; 
 	     
 	    
 	        try {

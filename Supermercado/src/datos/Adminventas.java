@@ -29,7 +29,7 @@ public class Adminventas extends Usuario {
 	
 	public boolean guardarAdminventa(Adminventas adminventas) {
 
-	    String sql = "INSERT INTO supermercado.usuario(dni, nombre, password, nivel ) VALUES (?,?,?,?)"; 
+	    String sql = "INSERT INTO supermercado.usuario(dni,nombre,password,nivel ) VALUES (?,?,?,?)"; 
 
 	        try {
 

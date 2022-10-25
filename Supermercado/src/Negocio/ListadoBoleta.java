@@ -18,8 +18,8 @@ public class ListadoBoleta {
 	}
 
 	
-	LinkedList<Boleta> Boleta = new LinkedList<Boleta>();
 	
+	LinkedList<Boleta> Boleta = new LinkedList<Boleta>();
 	
 
 			public boolean add(Boleta boleta) {

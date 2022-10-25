@@ -21,7 +21,7 @@ PreparedStatement stmt;
 
 public boolean guardarBoleta(Boleta boletas) {
 
-    String sql = "INSERT INTO supermercado.boleta(id_boleta, id_pedido,id_deposito, fecha,cantidad,dni ) VALUES (?,?,1,?,?,?)"; 
+    String sql = "INSERT INTO supermercado.boleta(id_boleta, id_pedido, id_deposito, fecha, cantidad, dni ) VALUES (?,?,1,?,?,?)"; 
      
     
         try {

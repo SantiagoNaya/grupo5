@@ -15,7 +15,7 @@ public class Conexion {
 			
 			
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado","root","");
-			JOptionPane.showMessageDialog(null, "se conecto");
+			//JOptionPane.showMessageDialog(null, "se conecto");
 		} catch (Exception e) {
 	
 			JOptionPane.showMessageDialog(null, "error al conectarse");
