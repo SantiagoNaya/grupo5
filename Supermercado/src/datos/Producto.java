@@ -27,6 +27,8 @@ public boolean guardarProducto(Producto productos) {
             stmt.setInt(2,productos.getCantidad());
             stmt.setString(3,productos.getNombre());
             stmt.setDouble(4,productos.getPrecio());
+            
+            
 
             stmt.executeUpdate();
             return true;

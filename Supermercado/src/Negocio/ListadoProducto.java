@@ -10,47 +10,36 @@ import datos.*;
 
 import UI.*;
 
+
+
 public class ListadoProducto {
+	
+	
 
 	public static void main(String[] args) {
-		
-
-		
+				
 		Interfaz i2 = new Interfaz();
-		
-		
-		
-	   
-		
+		i2.Login();	
 	}
 	
 
-
-
-LinkedList<Producto> Producto = new LinkedList<Producto>();
-	Producto[] producto = new Producto[3];
+	
 	public boolean add(Producto productos) {
-		
-		char [] data = productos.getArticulo().toCharArray();
-		
-		
-		if(data.length >= 3 && data.length <= 60 ) {
-			String cantidad = productos.getCantidad();
-			data = cantidad.toCharArray();
-			if(data.length >= 1 && data.length <= 6 ) {
-				String id_stock = productos.getId_stock();
-				data = id_stock.toCharArray();
+		Producto producto = new Producto();
+		char [] data = productos.getNombre().toCharArray();
 				
-				if(data.length > 0) {
-						
-					int i = Producto.size()+1;
-					producto[i] = productos;
-							return true;
+		if(data.length >= 3 && data.length <= 60 ) {
+			int cantidad = productos.getCantidad();
+			if(cantidad >= 1) {
+				int id_stock = productos.getId_producto();				
+				if(id_stock > 0) {					
+					double precio = productos.getPrecio();
+					if (precio > 0) {					
+						producto.guardarProducto(producto);
+					}						
 						}
 					}
-				}
-				
-				
+				}								
 		return false;
 			}
 }
