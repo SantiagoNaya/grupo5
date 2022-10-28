@@ -1,10 +1,21 @@
 package datos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.LinkedList;
+
 public class Usuario  {
 	private String nombre;
 	private String password;
 	private String dni;
 	private int nivel;
+	
+	Conexion con = new Conexion();
+
+    Connection conexion = con.conectar();
+
+    PreparedStatement stmt;
 	
 	public Usuario(String nombre, String password, String dni, int nivel) {
 		super();
@@ -14,10 +25,45 @@ public class Usuario  {
 		this.nivel = nivel;
 	}
 	
+	
+	
 		
-	public Usuario() {
-		super();
+	 public Usuario() {
+		
 	}
+
+
+
+
+	public LinkedList<Usuario> LlenarListaUsuario() {
+
+	        String sql ="SELECT * FROM usuario"; 
+
+	        String[] datos = new String[3];
+
+	        LinkedList<Usuario> Usuarios = new LinkedList<Usuario>();
+	        try {
+	            stmt = conexion.prepareStatement(sql);
+
+	            ResultSet result =  stmt.executeQuery();
+
+	            while(result.next()) {
+	                datos[0] = result.getString(1);
+	                datos[1] = result.getString(2);
+	                datos[2] = result.getString(3);
+	                    //System.out.println("Nombre: " + datos[0] + " tipo: " + datos[1]);
+
+	                Usuarios.add(new Usuario(datos[0],datos[1],datos[2],Integer.parseInt(datos[3])));
+
+	            }
+
+	            return Usuarios;
+	        } catch (Exception e) {
+	            // TODO: handle exception
+	            System.out.println("error ");
+	            return null;
+	        }
+	    }
 
 
 

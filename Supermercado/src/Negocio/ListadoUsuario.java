@@ -10,6 +10,10 @@ public class ListadoUsuario {
 
 	public static void main(String[] args) {
 		
+		public LinkedList<Usuario> LlenarListaUsuario(){
+
+		    Usuario usuario = new Usuario();
+		
 		Interfaz i1 = new Interfaz();
 		i1.Login();
 		

@@ -24,6 +24,8 @@ public class Interfaz {
 	
 	static ListadoBoleta Boletas = new ListadoBoleta();
 	
+	static Usuario usuario = new Usuario();
+	
 	
 	
 	private void IngresarAdmin() {
@@ -147,32 +149,54 @@ private void CrearUsuario() {
 			}
 	}
 	
-private void IniciarSesion() {
+
 	
-	
-	
-	int opcion = Integer.parseInt(JOptionPane.showInputDialog("Escoja el tipo de usuario que desea crear: \n "
-			+ "1-Operario\n"
-			+ "2-Gerente\n"
-			+ "3-Adminventas"));
-	switch (opcion) {
-	case 1: 
-		
-		IngresarOperario();
-		break;
-	case 2:
-		
-		IngresarGerente();
-		
-		break;
-	case 3: 
-		IngresarAdmin();
-		break;
-	
-		default: JOptionPane.showMessageDialog(null,"Se eligio una opción incorrecta volver a intentar");
-			break;
-		}
-}
+	private Usuario IniciarSesion() {
+
+	    LinkedList<Usuario> usuarios = usuario.LlenarListaUsuario();
+	    String[] UsuariosMostrar = new String[usuarios.size()];
+
+	    for (Usuario cuentas : usuarios) {
+	        UsuariosMostrar[usuarios.indexOf(cuentas)] = cuentas.getNombre() + cuentas.getPassword();
+	    }
+
+	    String opcion = (String) JOptionPane.showInputDialog("Ingrese su nombre");
+
+	    String opcion1 = (String) JOptionPane.showInputDialog("Ingrese su password");
+
+
+	    if (opcion != null && opcion1 != null) {
+	        JOptionPane.showMessageDialog(null, "El nombre ingresado fue: " + opcion + "La password ingresado fue:" + opcion1);
+	        for (Usuario cuentas : usuarios) {
+	            if (cuentas.getNombre().equals(opcion) && cuentas.getPassword().equals(opcion1)) {
+
+	                switch (cuentas.getNivel()) {
+	                case 0:
+
+	                    break;
+	                case 1:
+
+	                    break;
+	                case 2:
+
+	                    break;
+
+
+
+	                default:
+	                    break;
+	                }
+
+	            } else {
+	                return null;
+	            }
+	        }
+	    }
+	    return null;
+
+
+
+	}
 	
 	
 	/*private void SobreCarga() {
