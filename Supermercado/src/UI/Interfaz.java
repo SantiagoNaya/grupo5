@@ -7,7 +7,7 @@ import java.util.Scanner;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import UI.Interfazventas;
+import UI.*;
 
 import datos.*;
 import Negocio.*;
@@ -25,6 +25,14 @@ public class Interfaz {
 	static ListadoBoleta Boletas = new ListadoBoleta();
 	
 	static Usuario usuario = new Usuario();
+	
+	InterfazOperario interfazoperario = new InterfazOperario();
+	
+	Interfazventas interfazventas = new Interfazventas();
+	
+	InterfazGerente interfazgerente = new InterfazGerente();
+	
+	
 	
 	
 	
@@ -104,7 +112,8 @@ private void IngresarGerente() {
 		
 		switch (opcion) {
 		case 1: 
-			menuAlter();
+			
+			IniciarSesion();
 		
 			break;
 		case 2:
@@ -169,19 +178,19 @@ private void CrearUsuario() {
 	        JOptionPane.showMessageDialog(null, "El nombre ingresado fue: " + opcion + "La password ingresado fue:" + opcion1);
 	        for (Usuario cuentas : usuarios) {
 	            if (cuentas.getNombre().equals(opcion) && cuentas.getPassword().equals(opcion1)) {
-
+	            		
+	            	//Llamando a las interfaces dependiendo del nivel.
+	            	
 	                switch (cuentas.getNivel()) {
 	                case 0:
-
+	                   interfazoperario.login();
 	                    break;
 	                case 1:
-
+	                	interfazventas.login();
 	                    break;
 	                case 2:
-
+	                	interfazgerente.login();
 	                    break;
-
-
 
 	                default:
 	                    break;

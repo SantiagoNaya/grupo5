@@ -51,9 +51,10 @@ public class Usuario  {
 	                datos[0] = result.getString(1);
 	                datos[1] = result.getString(2);
 	                datos[2] = result.getString(3);
-	                    //System.out.println("Nombre: " + datos[0] + " tipo: " + datos[1]);
+	                datos[3] = result.getString(4);
+	                   System.out.println("Nombre:" + datos[0] + " tipo: " + datos[1]);
 
-	                Usuarios.add(new Usuario(datos[0],datos[1],datos[2],Integer.parseInt(datos[3])));
+	                Usuarios.add(new Usuario(datos[0],datos[1],datos[2], Integer.parseInt(datos[3])));
 
 	            }
 

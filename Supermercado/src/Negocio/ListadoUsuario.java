@@ -15,6 +15,7 @@ public class ListadoUsuario {
 		Interfaz i1 = new Interfaz();
 		i1.Login();
 	}
+	
 	public LinkedList<Usuario> LlenarListaUsuario() {
 		  
 		Usuario usuario = new Usuario();
