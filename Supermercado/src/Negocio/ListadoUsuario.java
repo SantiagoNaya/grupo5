@@ -1,6 +1,5 @@
 package Negocio;
 
-
 import java.util.LinkedList;
 
 import datos.*;
@@ -10,39 +9,42 @@ public class ListadoUsuario {
 
 	public static void main(String[] args) {
 		
-		public LinkedList<Usuario> LlenarListaUsuario(){
-
-		    Usuario usuario = new Usuario();
 		
+	
+
 		Interfaz i1 = new Interfaz();
 		i1.Login();
-		
 	}
-		
+	public LinkedList<Usuario> LlenarListaUsuario() {
+		  
+		Usuario usuario = new Usuario();
 
+		    return usuario.LlenarListaUsuario();
 	
-	
-public boolean add(Adminventas adminventas) {
-			
-			Adminventas admin = new Adminventas();
-			char [] data = adminventas.getNombre().toCharArray();
-					
-			if(data.length >= 3 && data.length <= 30 ) {
-				String password = adminventas.getPassword();
-				data = password.toCharArray();
-				if(data.length >= 3 && data.length <= 30) {
-					String dni = adminventas.getDni();
-					data = dni.toCharArray();				
-					if(data.length == 8) {					
-						
-					return	admin.guardarAdminventa(adminventas);
-						}						
-							}
-						}
-													
-			return false;
-			
+
+	}
+
+	public boolean add(Adminventas adminventas) {
+
+		Adminventas admin = new Adminventas();
+		char[] data = adminventas.getNombre().toCharArray();
+
+		if (data.length >= 3 && data.length <= 30) {
+			String password = adminventas.getPassword();
+			data = password.toCharArray();
+			if (data.length >= 3 && data.length <= 30) {
+				String dni = adminventas.getDni();
+				data = dni.toCharArray();
+				if (data.length == 8) {
+
+					return admin.guardarAdminventa(adminventas);
+				}
+			}
 		}
+
+		return false;
+
+	}
 
 public boolean add(Operario operarios) {
 	
@@ -58,36 +60,35 @@ public boolean add(Operario operarios) {
 			data = dni.toCharArray();				
 			if(data.length == 8) {					
 			return	operario.guardarOperario(operarios);
-				}						
+									
 					}
-				}
-											
-	return false;
-	
-}
-
-public boolean add(Gerente gerentes) {
-	
-	Gerente gerente = new Gerente();
-	
-	char [] data = gerentes.getNombre().toCharArray();
-			
-	if(data.length >= 3 && data.length <= 30 ) {
-		String password = gerentes.getPassword();
-		data = password.toCharArray();
-		if(data.length >= 3 && data.length <= 30) {
-			String dni = gerentes.getDni();
-			data = dni.toCharArray();				
-			if(data.length == 8) {					
-			return	gerente.guardarGerente(gerentes);
 				
-				}						
-					}
-				}
-											
-	return false;
+		}						
+	}return false;
 	
-	
-}
 }
 
+	public boolean add(Gerente gerentes) {
+
+		Gerente gerente = new Gerente();
+
+		char[] data = gerentes.getNombre().toCharArray();
+
+		if (data.length >= 3 && data.length <= 30) {
+			String password = gerentes.getPassword();
+			data = password.toCharArray();
+			if (data.length >= 3 && data.length <= 30) {
+				String dni = gerentes.getDni();
+				data = dni.toCharArray();
+				if (data.length == 8) {
+					return gerente.guardarGerente(gerentes);
+
+				}
+			}
+		}
+
+		return false;
+
+	}
+
+}
