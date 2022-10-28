@@ -35,7 +35,7 @@ public class ListadoProducto {
 				if(id_stock > 0) {					
 					double precio = productos.getPrecio();
 					if (precio > 0) {					
-						producto.guardarProducto(productos);
+					return	producto.guardarProducto(productos);
 					}						
 						}
 					}

@@ -30,7 +30,8 @@ public boolean add(Adminventas adminventas) {
 					String dni = adminventas.getDni();
 					data = dni.toCharArray();				
 					if(data.length == 8) {					
-						admin.guardarAdminventa(adminventas);
+						
+					return	admin.guardarAdminventa(adminventas);
 						}						
 							}
 						}
@@ -52,7 +53,7 @@ public boolean add(Operario operarios) {
 			String dni = operarios.getDni();
 			data = dni.toCharArray();				
 			if(data.length == 8) {					
-				operario.guardarOperario(operarios);
+			return	operario.guardarOperario(operarios);
 				}						
 					}
 				}
@@ -74,7 +75,8 @@ public boolean add(Gerente gerentes) {
 			String dni = gerentes.getDni();
 			data = dni.toCharArray();				
 			if(data.length == 8) {					
-				gerente.guardarGerente(gerentes);
+			return	gerente.guardarGerente(gerentes);
+				
 				}						
 					}
 				}

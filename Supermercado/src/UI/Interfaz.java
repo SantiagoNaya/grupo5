@@ -96,7 +96,7 @@ private void IngresarGerente() {
 		
 		JOptionPane.showMessageDialog(null, "¡Bienvenido Usuario!");
 		
-		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción correspondiente: \n"
+		int opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción correspondiente:\n"
 				+ "1-Iniciar sesión\n"
 				+ "2-Registrarse"));
 		
