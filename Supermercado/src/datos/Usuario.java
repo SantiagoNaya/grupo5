@@ -39,7 +39,7 @@ public class Usuario  {
 
 	        String sql ="SELECT * FROM usuario"; 
 
-	        String[] datos = new String[3];
+	        String[] datos = new String[4];
 
 	        LinkedList<Usuario> Usuarios = new LinkedList<Usuario>();
 	        try {
@@ -53,8 +53,10 @@ public class Usuario  {
 	                datos[2] = result.getString(3);
 	                datos[3] = result.getString(4);
 	                   System.out.println("Nombre:" + datos[0] + " tipo: " + datos[1]);
-
-	                Usuarios.add(new Usuario(datos[0],datos[1],datos[2], Integer.parseInt(datos[3])));
+	                   // Orden en constructor:  String nombre, String password, String dni, int nivel
+	                   // Orden en base de datos:  dni , nombre , password , nivel
+	                   // Mostrar la lista los datos
+	                Usuarios.add(new Usuario(datos[1],datos[2],datos[0], Integer.parseInt(datos[3])));
 
 	            }
 

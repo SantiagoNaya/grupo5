@@ -167,8 +167,16 @@ private void CrearUsuario() {
 
 	    for (Usuario cuentas : usuarios) {
 	        UsuariosMostrar[usuarios.indexOf(cuentas)] = cuentas.getNombre() + cuentas.getPassword();
+	        
 	    }
 
+	    for (Usuario cuentas : usuarios) {
+	        
+	    	System.out.println(cuentas.getNombre() + " " + cuentas.getPassword() + "\n");
+	        
+	    }
+	    
+	    
 	    String opcion = (String) JOptionPane.showInputDialog("Ingrese su nombre");
 
 	    String opcion1 = (String) JOptionPane.showInputDialog("Ingrese su password");
