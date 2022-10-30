@@ -87,7 +87,7 @@ private void IngresarGerente() {
 		gerentes.setNombre(JOptionPane.showInputDialog("Ingrese nombre de usuario:"));
 		gerentes.setPassword(JOptionPane.showInputDialog("Ingrese password:"));
 		gerentes.setNivel(2);
-		// Problema en la validación del if
+		
 		if(Usuarios.add(gerentes)) {
 			 JOptionPane.showMessageDialog(null, "Se agregó correctamente el Gerente.");
 			 Login();
@@ -161,54 +161,71 @@ private void CrearUsuario() {
 
 	
 	private Usuario IniciarSesion() {
-
+		
+		
+		
 	    LinkedList<Usuario> usuarios = usuario.LlenarListaUsuario();
 	    String[] UsuariosMostrar = new String[usuarios.size()];
 
 	    for (Usuario cuentas : usuarios) {
-	        UsuariosMostrar[usuarios.indexOf(cuentas)] = cuentas.getNombre() + cuentas.getPassword();
+	        UsuariosMostrar[usuarios.indexOf(cuentas)] = cuentas.getNombre() + cuentas.getPassword() + cuentas.getNivel();
 	        
+	     
 	    }
 
 	    for (Usuario cuentas : usuarios) {
 	        
-	    	System.out.println(cuentas.getNombre() + " " + cuentas.getPassword() + "\n");
-	        
+	    	System.out.println(cuentas.getNombre() + " " + cuentas.getPassword() + " " + cuentas.getNivel() + "\n");
+	    	
 	    }
 	    
 	    
-	    String opcion = (String) JOptionPane.showInputDialog("Ingrese su nombre");
+	    String nombre = (String) JOptionPane.showInputDialog("Ingrese su nombre");
 
-	    String opcion1 = (String) JOptionPane.showInputDialog("Ingrese su password");
+	    String password = (String) JOptionPane.showInputDialog("Ingrese su password");
 
-
-	    if (opcion != null && opcion1 != null) {
-	        JOptionPane.showMessageDialog(null, "El nombre ingresado fue: " + opcion + "La password ingresado fue:" + opcion1);
+	    
+	    
+	    if (nombre != null && password != null) {
+	        
+	    	JOptionPane.showMessageDialog(null, "Nombre: " + nombre + "\nPassword: " + password);
+	      
 	        for (Usuario cuentas : usuarios) {
-	            if (cuentas.getNombre().equals(opcion) && cuentas.getPassword().equals(opcion1)) {
-	            		
-	            	//Llamando a las interfaces dependiendo del nivel.
+	        	
+	            if (cuentas.getNombre().equals(nombre) && cuentas.getPassword().equals(password)) {
 	            	
-	                switch (cuentas.getNivel()) {
-	                case 0:
-	                   interfazoperario.login();
-	                    break;
-	                case 1:
-	                	interfazventas.login();
-	                    break;
-	                case 2:
-	                	interfazgerente.login();
-	                    break;
+	           
+	            	switch (cuentas.getNivel()) {
+	        		case 0: 
+	        			
+	        			interfazoperario.login();
+	        			
+	        			break;
+	        		case 1:
+	        			
+	        			interfazventas.login();
+	        			
+	        			break;
+	        		case 2: 
+	        			
+	        			interfazgerente.login();
+	        			
+	        			break;
+	        		
+	        			
+	            	
+	                	} 
 
-	                default:
-	                    break;
-	                }
-
-	            } else {
-	                return null;
+	            	
+	            	} else {
+	            		
+	            		
+	            		
 	            }
 	        }
 	    }
+	    
+	    
 	    return null;
 
 

@@ -7,7 +7,7 @@ public class InterfazOperario {
 	
 	public void login() {
 			
-		JOptionPane.showMessageDialog(null,"Bienvenido Ventas");
+		JOptionPane.showMessageDialog(null,"Bienvenido Operario");
 	
  }
 }

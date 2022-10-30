@@ -52,7 +52,7 @@ public class Usuario  {
 	                datos[1] = result.getString(2);
 	                datos[2] = result.getString(3);
 	                datos[3] = result.getString(4);
-	                   System.out.println("Nombre:" + datos[0] + " tipo: " + datos[1]);
+	                 //  System.out.println("Nombre:" + datos[0] + " tipo: " + datos[1]);
 	                   // Orden en constructor:  String nombre, String password, String dni, int nivel
 	                   // Orden en base de datos:  dni , nombre , password , nivel
 	                   // Mostrar la lista los datos
