@@ -189,13 +189,23 @@ private void CrearUsuario() {
 	    if (nombre != null && password != null) {
 	        
 	    	JOptionPane.showMessageDialog(null, "Nombre: " + nombre + "\nPassword: " + password);
-	      
+	    	int flag = 0;
+	    	int nivel = 0;
 	        for (Usuario cuentas : usuarios) {
 	        	
 	            if (cuentas.getNombre().equals(nombre) && cuentas.getPassword().equals(password)) {
 	            	
-	           
-	            	switch (cuentas.getNivel()) {
+	            	flag = 1;
+	            	nivel = cuentas.getNivel();
+	            }
+	            }
+	        
+	        if(flag == 1) {
+	        	
+	        	
+	        
+	        
+	            	switch (nivel) {
 	        		case 0: 
 	        			
 	        			interfazoperario.login();
@@ -219,12 +229,12 @@ private void CrearUsuario() {
 	            	
 	            	} else {
 	            		
-	            		
-	            		
+	            		JOptionPane.showMessageDialog(null, "Incorrecto");
+	            		IniciarSesion();
 	            }
 	        }
-	    }
 	    
+
 	    
 	    return null;
 
